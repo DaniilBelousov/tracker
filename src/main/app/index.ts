@@ -37,7 +37,7 @@ type CommitCallback = (messages: Array<Message>) => void;
 
 
 // TODO: use backendHost only
-export const DEFAULT_INGEST_POINT = 'https://api.openreplay.com/ingest';
+export const DEFAULT_INGEST_POINT = 'https://tracker.adpal.com';
 
 export default class App {
   readonly nodes: Nodes;
@@ -268,7 +268,7 @@ export default class App {
         connAttemptGap: this.options.connAttemptGap,
       }
       this.worker.postMessage(messageData); // brings delay of 10th ms?
-      return window.fetch(this.options.ingestPoint + '/v1/web/start', {
+      return window.fetch(this.options.ingestPoint + '/record', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

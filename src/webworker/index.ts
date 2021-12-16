@@ -38,7 +38,7 @@ let MAX_ATTEMPTS_COUNT = 10;
 function sendBatch(batch: Uint8Array):void {
   const req = new XMLHttpRequest();
   // TODO:  async=false (3d param) instead of sendQueue array ?
-  req.open("POST", ingestPoint + "/v1/web/i", false);  // TODO opaque request?
+  req.open("POST", ingestPoint + "/record", false);  // TODO opaque request?
   req.setRequestHeader("Authorization", "Bearer " + token);
   // req.setRequestHeader("Content-Type", "");
   req.onreadystatechange = function() {
